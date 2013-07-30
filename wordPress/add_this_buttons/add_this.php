@@ -63,7 +63,8 @@ function add_this_add_options_page() {
         __( 'addThis Options' ),
         'manage_options',
         'add_this_options_page',
-        'add_this_render_options_page'
+        'add_this_render_options_page',
+
     );
 }
 
