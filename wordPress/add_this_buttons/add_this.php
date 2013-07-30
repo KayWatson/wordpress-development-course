@@ -21,7 +21,7 @@ function add_this_sharing_enqueue_script(){
 add_action( 'wp_enqueue_scripts', 'add_this_sharing_enqueue_script' );
 
 function add_this_sharing_script(){
-    if ( is_single() ) {        
+    if ( is_single() && 0 == get_option( 'add_this_disable_button', 0) ) {        
         $js_html = '<script type="text/javascript">';
         $js_html .= 'addthis.layers({';
         $js_html .= '"theme" : "gray",';
@@ -93,9 +93,15 @@ function add_this_add_disable_button_setting() {
         'absint'
     );
 
+    register_setting(
+        'add_this_number_preferred',
+        'add_this_number_preferred',
+        'absint'
+    );
+
     // Add the settings section to hold the interface
     add_settings_section(
-        'addThis_main_settings',
+        'add_this_main_settings',
         __( 'AddThis Controls' ),
         'add_this_render_main_settings_section',
         'add_this_options_page'
