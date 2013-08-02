@@ -6,7 +6,7 @@ $yellow : #cccc66;
 $light-grey : #e8e8e7; 
 $dark-grey : #323232;
 $white: #ffffff;
-
+$img-border: 5px solid $white;
 
 
 //mixins//
@@ -32,7 +32,7 @@ header{
 	padding-bottom: 20px;
 	padding-left: 60px;
 
-	figure{
+	#logo{
 		width: 80px;
 		float: left;
 		margin-right: 20px;	
@@ -55,15 +55,12 @@ header{
 }
 
 footer{ 
-	height: 495px;
 	background-color: $purple;
-	padding: 60px;
-	
+
 	p{
 		color: $light-grey;
 		font-weight: 200;
 		letter-spacing: 1px;
-		width: 300px;
 	}
 
 }
@@ -131,6 +128,10 @@ li{
 
 #clear{ clear: both;}
 
+#featuredArt{
+	border: $img-border;
+	margin: 30px;
+}
 //Classes//
 .bar{
 	width:25%;
