@@ -16,18 +16,18 @@ License:     GPLv2 or later
  * @param  object    $post         The current post object.
  * @return void
  */
-function call_meta_box( $post_type, $post ) {
+function klw_call_meta_box( $post_type, $post ) {
     add_meta_box(
         'byebyebye_line',
-        __( 'Bye Bye Bye Line', 'byebyebye_lines' ),
-        'display_meta_box',
+        __( 'Bye Bye Bye Line', 'klw_byebyebye_lines' ),
+        'klw_display_meta_box',
         'post',
         'side',
         'high'
     );
 }
 
-add_action( 'add_meta_boxes', 'call_meta_box', 10, 2 );
+add_action( 'add_meta_boxes', 'klw_call_meta_box', 10, 2 );
 
 /**
  * Display the HTML for the metabox.
@@ -36,15 +36,15 @@ add_action( 'add_meta_boxes', 'call_meta_box', 10, 2 );
  * @param  array     $args    Additional arguments for the metabox.
  * @return void
  */
-function display_meta_box( $post, $args ) {
+function klw_display_meta_box( $post, $args ) {
 ?>
     <p>
-        <label for="byeline">
-            <?php _e( 'Bye Bye Bye Line', 'byebyebye_lines' ); ?>:&nbsp;
+        <label for="klw-byeline">
+            <?php _e( 'Bye Bye Bye Line', 'klw_byebyebye_lines' ); ?>:&nbsp;
         </label>
         <input type="text" class="widefat" name="byeline" value="" />
         <em>
-            <?php _e( 'HTML is not allowed', 'byebyebye_lines' ); ?>
+            <?php _e( 'HTML is not allowed', 'klw_byebyebye_lines' ); ?>
         </em>
     </p>
 <?php
@@ -56,16 +56,16 @@ function display_meta_box( $post, $args ) {
  * @param  int       $post_id    The ID for the current post.
  * @param  object    $post       The current post object.
  */
-function save_meta_box( $post_id, $post ) {
-    if ( ! isset( $_POST['byeline'] ) ) {
+function klw_save_meta_box( $post_id, $post ) {
+    if ( ! isset( $_POST['klw_byeline'] ) ) {
         return;
     }
 
-    $byeline = $_POST['byeline'];
-    update_post_meta( $post_id, 'byebyebye-line', $byeline );
+    $byeline = $_POST['klw_byeline'];
+    update_post_meta( $post_id, 'klw_byebyebye-line', $byeline );
 }
 
-add_action( 'save_post', 'save_meta_box', 10, 2 );
+add_action( 'save_post', 'klw_save_meta_box', 10, 2 );
 
 /**
  * Append the Bye Bye Bye Line to the content.
@@ -73,9 +73,9 @@ add_action( 'save_post', 'save_meta_box', 10, 2 );
  * @param  string    $content    The original content.
  * @return string                The altered content.
  */
-function print_byebyebye_line( $content ) {
-    $byebyebye_line = get_post_meta( get_the_ID(), 'byebyebye-line', true );
+function klw_print_byebyebye_line( $content ) {
+    $byebyebye_line = get_post_meta( get_the_ID(), 'klw_byebyebye-line', true );
     return $content . $byebyebye_line;
 }
 
-add_filter( 'the_content', 'print_byebyebye_line' );
+add_filter( 'the_content', 'klw_print_byebyebye_line' );
