@@ -37,12 +37,13 @@ add_action( 'add_meta_boxes', 'klw_call_meta_box', 10, 2 );
  * @return void
  */
 function klw_display_meta_box( $post, $args ) {
+     wp_nonce_field( plugins_url( __FILE__ ), 'klw_byebyebye_lines_noncename' );
 ?>
     <p>
         <label for="klw-byeline">
             <?php _e( 'Bye Bye Bye Line', 'klw_byebyebye_lines' ); ?>:&nbsp;
         </label>
-        <input type="text" class="widefat" name="byeline" value="" />
+        <input type="text" class="widefat" name="byeline" value="<?php echo get_post_meta( $post->ID, 'klw-byeline', true ); ?>" />
         <em>
             <?php _e( 'HTML is not allowed', 'klw_byebyebye_lines' ); ?>
         </em>
@@ -57,12 +58,14 @@ function klw_display_meta_box( $post, $args ) {
  * @param  object    $post       The current post object.
  */
 function klw_save_meta_box( $post_id, $post ) {
-    if ( ! isset( $_POST['klw_byeline'] ) ) {
-        return;
-    }
+    if ( ! isset( $_POST['klw_byeline'] ) && wp_verify_nonce( $_POST[ 'klw_byebyebye_lines_noncename' ], plugins_url( __FILE__ ) ) ){
+        update_post_meta( $post_id, 'klw-byeline', absint( $_POST[ 'klw-byeline ' ] ) );
+    } else{
 
     $byeline = $_POST['klw_byeline'];
     update_post_meta( $post_id, 'klw_byebyebye-line', $byeline );
+    }
+    return;
 }
 
 add_action( 'save_post', 'klw_save_meta_box', 10, 2 );
