@@ -7,33 +7,22 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin makes adding and accessing multiple pages quick and easy. The 'Pages' dropdown offers
-an add multiple pages feature and after each page has been created, the list of pages will also display in
-the dropdown as a directory for quick access. 
+This plugin makes adding and accessing multiple pages quick and easy. This feature provides a multi-page-creating form that will enable the user to create up to five pages in one submission. 
 
 
 == Description ==
-The Add Multiple Pages plugin creates a better user experience for creating multiple pages and accessing each page with one click.
-Once the plugin is installed, a new option titled 'Add Multiple' will be displayed under the 'Pages' menu in the WordPress user admin.
-Within this option, the user will see a simpler version of the 'Add New Page' user interface. 
-After each component is attended to, the user can choose to 'Add Another Page' or 'Save Changes' with the click of a button.  
+The Add Multiple Pages plugin creates a better user experience for creating multiple pages and accessing each page with one click. Once the plugin is installed, a new option titled 'Add Multiple' will be displayed under the 'Pages' menu in the WordPress user admin. Within this option, the user will see a simpler version of the 'Add New Page' user interface. The user may set the page title, menu order, parent, and sample content. In addition, the user may set the page to draft if he or she is not ready to publish.   
+The user has the same options for every page and can enter up to five forms for five pages in one form submission. 
 
 What it will have:
-The UI will include an empty textfield to enter a page name, a dropdown menu for assigning a parent to the page, a dropdown for template style, 
-and a textfield for page order number. These features come directly from the current 'Page Attributes' section within the 'Add New Page' UI.
+The UI will include an empty textfield to enter a page name, a drop-down menu for assigning a parent to the page, a drop-down menu for draft or publish, textfield for page order number, and a text area for sample content. These features come directly from the current 'Page Attributes' section within the 'Add New Page' UI. 
 
 What it will not have: 
 To make this feature simple and less time-consuming, the 'Add Multiple Pages' option will not include every aspect of the 'Add New Pages' UI.
-It will not provide a textarea for the user to write content or add media to the page. 
-The 'Publish' section will not be included in the 'Add Multiple' UI. 
-The 'Featured Image' section will not be included in the 'Add Multiple' UI. 
-All of these features will become available when the user has selected a specific page to edit. 
+It will not include the "kitchen sink" or allow the user to add media to the page. The user will not have the ability to set the template of any page within this form. The 'Featured Image' section will not be included in the 'Add Multiple' UI. All of these features will become available when the user has selected a specific page to edit. 
 
 After multiple pages have been created:
-Once the user has completed adding multiple pages and has saved the changes, the pages will be listed under the 'Pages' menu dropdown
-along with 'All Pages', 'Add New', and 'Add Multiple'. From here, the user can select a page to edit and publish without the obstacle of 
-going through 'All Pages' to find a specific page.  
-
+Once the user has completed adding multiple pages and updated the site, the pages will become available in the 'All Pages' archive. From here, the user can select a page to edit to more detail. 
 
 
 A few notes about the sections above:
@@ -70,22 +59,21 @@ e.g.
 
 = How does this effect the 'Add New' option? =
 
-It doesn't. You will still have that option availible to you.
+It doesn't. You will still have that option available to you.
 
 = How many pages can I create at once? =
 
-As many as your heart desires!
+You may create up to five pages in one form submission. 
 
 = How do I edit one of the pages that I've just created? =
 
-After you've created your pages and saved changes, you will see them listed in the dropdown menu under 'Pages'.
+After you've created your pages and saved changes, you will see them listed in the 'All Pages' archive page.
 You can select the page you wish to edit and you will be taken to that page's 'Edit Page' screen. 
 
 == Screenshots ==
 
 1. screenshot-1.jpg displays the Page dropdown menu that includes 'Add Multiple'
 2. screenshot-2.jpg displays the form for the 'Add Multiple' page
-3. screenshot-3.jpg displays the pages created with 'Add Multiple' under the 'Page' menu
 
 
 == Changelog ==

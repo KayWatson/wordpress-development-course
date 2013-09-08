@@ -45,7 +45,9 @@ function klw_add_multiple_pages_menu() {
 	add_pages_page('Multiple Page Creator', 'Add Multiple', 'read', 'add-multiple', 'klw_multiple_page');
 }
 
+
 function klw_multiple_page() {
+
 	?>
 	<div class="wrap">
 		<div id="icon-edit-pages" class="icon32 icon32-posts-page"></div>
@@ -101,7 +103,7 @@ function klw_multiple_page() {
 						<input size="29" type="text" id="klw-page-name2" name="klw-page-name2"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order2"><?php _e('Order','klw');?></label>
+						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
 						<input name= "menu_order2" type="text" size="4" id="menu_order2" value="0">
 					</td>
 					<td id="page_id">
@@ -125,7 +127,7 @@ function klw_multiple_page() {
 			</table>
 			<!--End Table for Page 2-->
 			<!--Table for Page 3-->
-			<table>
+			<table style="margin-bottom:40px; background-color: #E0E0E0; padding: 15px;">
 				<tr>
 					<td><strong><?php _e('Page Name','klw');?></strong></td>
 					<td><strong><?php _e('Order','klw');?></strong></td>
@@ -137,7 +139,7 @@ function klw_multiple_page() {
 						<input size="29" type="text" id="klw-page-name3" name="klw-page-name3"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order3"><?php _e('Order','klw');?></label>
+						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
 						<input name= "menu_order3" type="text" size="4" id="menu_order3" value="0">
 					</td>
 					<td id="page_id">
@@ -173,7 +175,7 @@ function klw_multiple_page() {
 						<input size="29" type="text" id="klw-page-name4" name="klw-page-name4"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order4"><?php _e('Order','klw');?></label>
+						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
 						<input name= "menu_order4" type="text" size="4" id="menu_order4" value="0">
 					</td>
 					<td id="page_id">
@@ -209,7 +211,7 @@ function klw_multiple_page() {
 						<input size="29" type="text" id="klw-page-name5" name="klw-page-name5"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order5"><?php _e('Order','klw');?></label>
+						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
 						<input name= "menu_order5" type="text" size="4" id="menu_order5" value="0">
 					</td>
 					<td id="page_id">
