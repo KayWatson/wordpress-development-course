@@ -27,21 +27,25 @@ function klw_insert_pages(){
 }
 add_action('admin_menu', 'klw_insert_pages');
 
-//Enqueue Styles
-function klw_add_multiple_pages_styles(){
-		wp_register_style('klw-add-multiple-pages-css',WP_PLUGIN_URL.'/add-multiple-pages-plugin/styles.css');
-		wp_enqueue_style('klw-add-multiple-pages-css');
+//Enqueue Styles-Does not work
+/*function klw_add_multiple_pages_styles(){
+	wp_enqueue_style(
+    'klw-table-styles',
+    plugins_url( '/style.css', __FILE__ ),
+    array(),
+    '1.54',
+    'all'
+    );
 }
-add_action('wp_header', 'klw_add_multiple_pages_styles');
+
+add_action('wp_enqueue_style','klw_add_multiple_pages_styles');*/
 
 //Create Multiple Page Menu Item//
 function klw_add_multiple_pages_menu() {
 	add_pages_page('Multiple Page Creator', 'Add Multiple', 'read', 'add-multiple', 'klw_multiple_page');
 }
 
-
 function klw_multiple_page() {
-
 	?>
 	<div class="wrap">
 		<div id="icon-edit-pages" class="icon32 icon32-posts-page"></div>
@@ -49,7 +53,7 @@ function klw_multiple_page() {
 		<p><?php _e('Use the form below to add multiple pages to the site at one time. You may add up to five pages at once!','klw');?></p>
 		<form id="klw-add-pages" name="klw-add-pages" method="post" action="">
 			<!--Table for Page 1-->	
-			<table style= "margin-bottom:40px; background-color: #E0E0E0; padding: 15px;">
+			<table style="margin-bottom:40px; background-color: #E0E0E0; padding: 15px;">
 				<tr>
 					<td><strong><?php _e('Page Name','klw');?></strong></td>
 					<td><strong><?php _e('Order','klw');?></strong></td>
@@ -121,7 +125,7 @@ function klw_multiple_page() {
 			</table>
 			<!--End Table for Page 2-->
 			<!--Table for Page 3-->
-			<table style= "margin-bottom:40px; background-color: #E0E0E0; padding: 15px;">
+			<table>
 				<tr>
 					<td><strong><?php _e('Page Name','klw');?></strong></td>
 					<td><strong><?php _e('Order','klw');?></strong></td>
