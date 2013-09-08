@@ -13,10 +13,15 @@ add_action('admin_menu', 'klw_add_multiple_pages_menu');
 
 //Saves Form and Adds New Pages
 function klw_insert_pages(){
+
 	if(!empty($_POST)) {
 		if(isset($_POST['klw-page-name1'])||isset($_POST["klw-page-name2"])||isset($_POST["klw-page-name3"])||isset($_POST["klw-page-name4"])||isset($_POST["klw-page-name5"])){
 	   		klw_save_form($_POST);
 	   	}
+	   	else if( !isset($_POST['klw_plugin_noncename']) || !wp_verify_nonce($_POST['klw_plugin_noncename'],plugins_url(__FILE__))){
+   			print 'Sorry, your nonce did not verify.';
+   			exit;
+		}
 	}
 
 }
@@ -34,7 +39,9 @@ function klw_add_multiple_pages_menu() {
 	add_pages_page('Multiple Page Creator', 'Add Multiple', 'read', 'add-multiple', 'klw_multiple_page');
 }
 
+
 function klw_multiple_page() {
+
 	?>
 	<div class="wrap">
 		<div id="icon-edit-pages" class="icon32 icon32-posts-page"></div>
@@ -90,8 +97,8 @@ function klw_multiple_page() {
 						<input size="29" type="text" id="klw-page-name2" name="klw-page-name2"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
-						<input name= "menu_order" type="text" size="4" id="menu_order" value="0">
+						<label class= "screen-reader-text" for="menu_order2"><?php _e('Order','klw');?></label>
+						<input name= "menu_order2" type="text" size="4" id="menu_order2" value="0">
 					</td>
 					<td id="page_id">
 						<?php wp_dropdown_pages('name=page_parent2&sort_column=menu_order&post_status=draft,publish&show_option_none=(No Parent)');?>
@@ -123,11 +130,11 @@ function klw_multiple_page() {
 				</tr>
 				<tr>
 					<td>
-						<input size="29" type="text" id="klw-page-name3" name="klw-page-name13"/>
+						<input size="29" type="text" id="klw-page-name3" name="klw-page-name3"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
-						<input name= "menu_order" type="text" size="4" id="menu_order" value="0">
+						<label class= "screen-reader-text" for="menu_order3"><?php _e('Order','klw');?></label>
+						<input name= "menu_order3" type="text" size="4" id="menu_order3" value="0">
 					</td>
 					<td id="page_id">
 						<?php wp_dropdown_pages('name=page_parent3&sort_column=menu_order&post_status=draft,publish&show_option_none=(No Parent)');?>
@@ -162,8 +169,8 @@ function klw_multiple_page() {
 						<input size="29" type="text" id="klw-page-name4" name="klw-page-name4"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
-						<input name= "menu_order" type="text" size="4" id="menu_order" value="0">
+						<label class= "screen-reader-text" for="menu_order4"><?php _e('Order','klw');?></label>
+						<input name= "menu_order4" type="text" size="4" id="menu_order4" value="0">
 					</td>
 					<td id="page_id">
 						<?php wp_dropdown_pages('name=page_parent4&sort_column=menu_order&post_status=draft,publish&show_option_none=(No Parent)');?>
@@ -198,8 +205,8 @@ function klw_multiple_page() {
 						<input size="29" type="text" id="klw-page-name5" name="klw-page-name5"/>
 					</td>
 					<td>
-						<label class= "screen-reader-text" for="menu_order"><?php _e('Order','klw');?></label>
-						<input name= "menu_order" type="text" size="4" id="menu_order" value="0">
+						<label class= "screen-reader-text" for="menu_order5"><?php _e('Order','klw');?></label>
+						<input name= "menu_order5" type="text" size="4" id="menu_order5" value="0">
 					</td>
 					<td id="page_id">
 						<?php wp_dropdown_pages('name=page_parent5&sort_column=menu_order&post_status=draft,publish&show_option_none=(No Parent)');?>
@@ -221,6 +228,8 @@ function klw_multiple_page() {
 				</tr>
 			</table>		
 				<input type="submit" class="button-primary" value="Update Site"/>
+			<!--Create nonce field-->
+			<?php wp_nonce_field( plugins_url(__FILE__), 'klw_plugin_noncename' );?>	
 		</form>
 	</div>
 
@@ -301,7 +310,7 @@ function klw_save_form($post){
     	} else {
     		$parent5 = '';
     	}
-    	
+
 	     $args5 = array(
 		 	'post_type'    => 'page',
 		 	'post_status'  => $_POST['posttype5'],
